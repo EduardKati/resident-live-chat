@@ -61,6 +61,12 @@
   cursor: not-allowed;
 }
 
+.bubble.mine {
+  align-self: flex-end;
+  background: #eef6ff;
+  border-color: #d7eaff;
+}
+
 @media (max-width: 640px) {
   .form {
     grid-template-columns: 1fr;
