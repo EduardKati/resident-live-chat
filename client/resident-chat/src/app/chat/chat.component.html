@@ -1,0 +1,35 @@
+<div class="page">
+  <h1>Resident Live Chat</h1>
+
+  <div class="chat-box">
+    <div class="msg" *ngFor="let m of (messages$ | async); trackBy: trackByTs">
+      <div class="meta">
+        <span class="user">{{ m.username }}</span>
+        <span class="time">{{ m.ts | date:'shortTime' }}</span>
+      </div>
+      <div class="text">{{ m.message }}</div>
+    </div>
+  </div>
+
+  <form class="form" (ngSubmit)="submit()">
+    <input
+      class="input"
+      name="username"
+      placeholder="Username"
+      [(ngModel)]="username"
+      required
+    />
+
+    <input
+      class="input"
+      name="message"
+      placeholder="Type a message..."
+      [(ngModel)]="message"
+      required
+    />
+
+    <button class="btn" type="submit" [disabled]="!username.trim() || !message.trim()">
+      Send
+    </button>
+  </form>
+</div>
